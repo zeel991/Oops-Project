@@ -7,8 +7,9 @@ void Quiz::insertQuestions() {
         string opt;
         int ans;
 
-        cout << "Enter the MCQ question "<< i+1 << "\n";
-        getline(cin, question);
+         cout << "Enter the MCQ question " << i + 1 << "\n";
+        cin.ignore(); // Ignore any newline left from previous input
+        getline(cin, question); // Now read the full question line
 
         for (int j = 0; j < 4; j++) {
             cout << "Enter the Option " << j + 1 << "\n";

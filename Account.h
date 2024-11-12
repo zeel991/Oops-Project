@@ -2,25 +2,23 @@
 #define ACCOUNT_H
 
 #include <string>
-using namespace std;
-
 #include <iostream>
-#include <string>
 #include<sstream>
 #include <vector>
+#include<unordered_map>
+using namespace std;
 class Admin {
 protected:
     string name;
-    int id;
+    string password;
 
 public:
-    Admin(string n, int i) : name(n), id(i) {}
+    Admin(string n , string password) : name(n) , password(password){}
 
     virtual void displayRole() = 0;
 
     void displayInfo() {
         cout << "Name: " << name << endl;
-        cout << "ID: " << id << endl;
     }
 
     string getName() const { return name; }
@@ -30,17 +28,17 @@ public:
 
 class Student : public Admin {
 private:
-    int score;
-
+    string id;
+    unordered_map<string , int> Quiz_Score;
 public:
-    Student(string n, int i, int s) : Admin(n, i), score(s) {}
+    Student(string n, int i, int s) : Admin(n, password) {}
 
     void displayRole() override {
         cout << "Role: Student" << endl;
     }
 
-    void displayScore() {
-        cout << "Score: " << score << endl;
+    void displayScore(string Quiz_code) {
+        cout << "Score: " << Quiz_Score[Quiz_code] << endl;
     }
 };
 
@@ -49,7 +47,7 @@ private:
     string subject;
 
 public:
-    Teacher(string n, int i, string sub) : Admin(n, i), subject(sub) {}
+    Teacher(string n, int i, string sub) : Admin(n, password), subject(sub) {}
 
     void displayRole() override {
         cout << "Role: Teacher" << endl;

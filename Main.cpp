@@ -14,15 +14,15 @@ int main() {
     // Display student and teacher information
     student1.displayInfo();
     student1.displayRole();
-    student1.displayScore();
+    // student1.displayScore();
 
-    std::cout << std::endl;
+    cout << endl;
 
     teacher1.displayInfo();
     teacher1.displayRole();
     teacher1.displaySubject();
 
-    std::cout << std::endl;
+    cout << endl;
 
     // Take the quiz
     quiz.takeQuiz(&student1);
