@@ -8,8 +8,8 @@ int main() {
     Quiz quiz;
 
     // Create some student and teacher objects
-    Student student1("Alice", 101, 85);
-    Teacher teacher1("Mr. Smith", 202, "Mathematics");
+    Student student1("Zeel", "hello", "BT23CSE116");
+    Teacher teacher1("Mr. Smith","1234", "Mathematics" , "CSL102");
 
     // Display student and teacher information
     student1.displayInfo();

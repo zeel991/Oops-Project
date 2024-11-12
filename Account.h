@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include<sstream>
+#include <sstream>
 #include <vector>
 #include<unordered_map>
 using namespace std;
@@ -13,7 +13,7 @@ protected:
     string password;
 
 public:
-    Admin(string n , string password) : name(n) , password(password){}
+    Admin(string n , string password) {}
 
     virtual void displayRole() = 0;
 
@@ -31,7 +31,11 @@ private:
     string id;
     unordered_map<string , int> Quiz_Score;
 public:
-    Student(string n, int i, int s) : Admin(n, password) {}
+    Student(string n, string password ,string id) : Admin(n, password) {
+        this->name = n;
+        this->password = password;
+        this->id = id; 
+    }
 
     void displayRole() override {
         cout << "Role: Student" << endl;
@@ -45,9 +49,15 @@ public:
 class Teacher : public Admin {
 private:
     string subject;
+    string id;
 
 public:
-    Teacher(string n, int i, string sub) : Admin(n, password), subject(sub) {}
+    Teacher(string n, string password, string sub ,string id) : Admin(n, password), subject(sub) {
+        this->name = n;
+        this->password = password;
+        this->id = id;
+        this->subject = sub;
+    }
 
     void displayRole() override {
         cout << "Role: Teacher" << endl;
