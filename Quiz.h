@@ -2,6 +2,7 @@
 #define QUIZ_H
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include "Question.h"
 #include "Account.h"
@@ -28,6 +29,7 @@ public:
         cin >> number_of_TF;
 
         insertQuestions();
+        ofstream file(quizCode+"_results.txt");
     }
 
     void insertQuestions();
@@ -35,6 +37,8 @@ public:
     string getQuizCode();
 
     void takeQuiz(Student* student);
+
+    void storeQuizResult(const string& studentId, int score);
 };
 
 #endif // QUIZ_H

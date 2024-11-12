@@ -13,18 +13,19 @@ int main() {
 
     // Sample student and teacher for testing
     Student student1("Zeel", "hello", "BT23CSE116");
-    // Quiz q;
-    // q.takeQuiz(&student1);
     students.push_back(student1);
     Teacher teacher1("Zeel", "1234", "Mathematics", "CSL102");
     teachers.push_back(teacher1);
     int choice = 1;
     while (choice) {
-        cout << "1: Login as a Student" << endl;
-        cout << "2: Login as a Teacher" << endl;
-        cout << "3: Register as a Student" << endl;
-        cout << "4: Register as a Teacher" << endl;
-        cout << "5: Exit" << endl;
+        cout<<endl;
+        cout << " +-----------------------------------------------------+"<<endl;
+        cout << " |           1: Login as a Student                     |" << endl;
+        cout << " |           2: Login as a Teacher                     |"<< endl;
+        cout << " |           3: Register as a Student                  |"<< endl;
+        cout << " |           4: Register as a Teacher                  |" << endl;
+        cout << " |           5: Exit                                   |" << endl;
+        cout << " +-----------------------------------------------------+"<<endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -43,9 +44,12 @@ int main() {
 
                 if (studentIt != students.end()) {
                     int ans;
-                    cout << "1: Take Quiz" << endl;
-                    cout << "2: View Score" << endl;
-                    cout << "Enter your choice: ";
+                    cout<<endl;
+                    cout <<"+-------------------+"<<endl;
+                    cout <<"|1: Take Quiz       |" << endl;
+                    cout <<"|2: View Score      |" << endl;
+                    cout <<"+-------------------+"<<endl;
+                    cout <<"Enter your choice: ";
                     cin >> ans;
 
                     if (ans == 1) {

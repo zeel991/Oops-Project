@@ -47,6 +47,12 @@ public:
         cout << "Score: " << Quiz_Score[Quiz_code] << endl;
         return Quiz_Score[Quiz_code];
     }
+    string getID(){
+        return this->id;
+    }
+    void setScore(string Quiz_code,int num){
+        Quiz_Score[Quiz_code] = num;
+    }
 };
 
 class Teacher : public Admin {

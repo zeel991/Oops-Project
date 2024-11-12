@@ -92,5 +92,17 @@ void Quiz::takeQuiz(Student* student) {
     cout << "\nQuiz finished! Your score: " << score << " out of " 
          << (questions1.size() + questions2.size()) << "\n";
     // Save the score in the student's record (if implemented)
-    // student->setScore(quizCode, score);
+    student->setScore(quizCode, score);
+
+    string filename = quizCode+"_results.txt";
+
+    ofstream Write_Result;
+
+    Write_Result.open(filename,ios::app);
+    student->getScore(quizCode);
+    Write_Result << "+----------------------------------------------+"<<endl;
+    Write_Result << "|" +student->getID()<<"      |         " +student->getScore(quizCode) <<"             ";      
+
+    Write_Result.close();
+
 }
