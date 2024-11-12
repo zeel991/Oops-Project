@@ -13,10 +13,11 @@ int main() {
 
     // Sample student and teacher for testing
     Student student1("Zeel", "hello", "BT23CSE116");
+    // Quiz q;
+    // q.takeQuiz(&student1);
     students.push_back(student1);
     Teacher teacher1("Zeel", "1234", "Mathematics", "CSL102");
     teachers.push_back(teacher1);
-
     int choice = 1;
     while (choice) {
         cout << "1: Login as a Student" << endl;

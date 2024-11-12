@@ -9,23 +9,28 @@ void Quiz::insertQuestions() {
         string opt;
         int ans;
 
-         cout << "Enter the MCQ question " << i + 1 << "\n";
-        cin.ignore(); // Ignore any newline left from previous input
-        getline(cin, question); // Now read the full question line
+       cout << "Enter the MCQ question " << i + 1 << "\n";
+cin.ignore(); // Ignore any newline left from previous input
+getline(cin, question); // Now read the full question line
+cout << question << endl; // Print to verify input
 
-        for (int j = 0; j < 4; j++) {
-            cout << "Enter the Option " << j + 1 << "\n";
-            cin >> opt;
-            options.push_back(opt);
-            cin.ignore(); // Clear newline character
-        }
+for (int j = 0; j < 4; j++) {
+    cout << "Enter Option " << j + 1 << "\n";
+    getline(cin, opt); // Read the full option line
+    options.push_back(opt); // Store option
+    cout << "Option " << j + 1 << ": " << opt << endl; // Print to verify input
+}
+
+
 
         cout << "Enter the Index of Correct Option: ";
         cin >> ans;
         cin.ignore(); // Clear newline character
-
-        questions1.emplace_back(question, options, ans);
+        
+        questions1.push_back(MultipleChoiceQuestion(question,options,(int)ans));
         options.clear();
+
+        questions1[0].printQuestion();
     }
 
     for (int i = 0; i < number_of_TF; i++) {
@@ -34,16 +39,58 @@ void Quiz::insertQuestions() {
 
         cout << "Enter the True/False question :\n";
         getline(cin, question);
-
+        cin.ignore();
         cout << "Enter 1 if answer is True, 2 if answer is False\n";
         cin >> ans;
         cin.ignore(); // Clear newline character
 
-        questions2.emplace_back(question, ans);
+        questions2.push_back(TrueFalseQuestion(question, (int)ans));
     }
 }
 
 void Quiz::takeQuiz(Student* student) {
-    // Implement quiz taking logic here
-    cout << "Student " << student->getName() << " is taking the quiz." << endl;
+    int score = 0;
+
+    cout << "Starting the quiz...\n";
+    cout << "Quiz Code: " << quizCode << "\n";
+
+    // Iterate over multiple-choice questions
+    for (int i = 0; i < number_of_MCQ; i++) {
+        // cout << "\nQuestion " << i + 1 << ": " << questions1[i].getQuestion() << "\n";
+        questions1[i].askQuestion(); // Display question with options
+
+        int answer;
+        cout << "Enter your answer (1 - 4): ";
+        cin >> answer;
+
+        if (questions1[i].checkAnswer(answer)) {
+            cout << "Correct!\n";
+            score++;
+        } else {
+            cout << "Incorrect. The correct answer was option " << questions1[i].getCorrectOption() << ".\n";
+        }
+    }
+
+    // Iterate over true/false questions
+    for (size_t i = 0; i < questions2.size(); i++) {
+        cout << "\nQuestion " << i + 1 + questions1.size() << ": " << questions2[i].getQuestion() << "\n";
+        questions2[i].askQuestion(); // Display true/false question
+
+        int answer;
+        cout << "Enter your answer (1 for True, 2 for False): ";
+        cin >> answer;
+
+        if (questions2[i].checkAnswer(answer)) {
+            cout << "Correct!\n";
+            score++;
+        } else {
+            cout << "Incorrect. The correct answer was " 
+                 << (questions2[i].getCorrectOption() == 1 ? "True" : "False") << ".\n";
+        }
+    }
+
+    cout << "\nQuiz finished! Your score: " << score << " out of " 
+         << (questions1.size() + questions2.size()) << "\n";
+    // Save the score in the student's record (if implemented)
+    // student->setScore(quizCode, score);
 }
