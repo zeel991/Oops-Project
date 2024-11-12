@@ -40,9 +40,12 @@ public:
     void displayRole() override {
         cout << "Role: Student" << endl;
     }
-
-    void displayScore(string Quiz_code) {
+    string getPassword(){
+        return this->password;
+    }
+    int getScore(string Quiz_code) {
         cout << "Score: " << Quiz_Score[Quiz_code] << endl;
+        return Quiz_Score[Quiz_code];
     }
 };
 
@@ -58,9 +61,14 @@ public:
         this->id = id;
         this->subject = sub;
     }
+    string getPassword(){
+        return this->password;
+    }
 
     void displayRole() override {
         cout << "Role: Teacher" << endl;
+        cout<< "Name :" <<endl;
+        cout<< "ID" <<endl;
     }
 
     void displaySubject() {

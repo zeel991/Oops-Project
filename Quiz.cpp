@@ -1,5 +1,7 @@
 #include "Quiz.h"
-
+string Quiz::getQuizCode(){
+    return this->quizCode;
+}
 void Quiz::insertQuestions() {
     vector<string> options;
     for (int i = 0; i < number_of_MCQ; i++) {

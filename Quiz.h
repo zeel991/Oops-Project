@@ -17,8 +17,9 @@ protected:
 
 public: 
     Quiz() {
-        cout << "Set the quizcode\n";
-        getline(cin, quizCode);
+    cout << "Set the quizcode\n";
+    cin.ignore(); // Clear any leftover newline in the input buffer
+    getline(cin, quizCode); // Use getline to allow for spaces in quizCod
 
         cout << "Enter the number of MCQ type questions\n";
         cin >> number_of_MCQ;
@@ -30,6 +31,8 @@ public:
     }
 
     void insertQuestions();
+
+    string getQuizCode();
 
     void takeQuiz(Student* student);
 };
