@@ -10,15 +10,15 @@ void Quiz::insertQuestions() {
         int ans;
 
        cout << "Enter the MCQ question " << i + 1 << "\n";
-cin.ignore(); // Ignore any newline left from previous input
-getline(cin, question); // Now read the full question line
-cout << question << endl; // Print to verify input
+    cin.ignore();
+getline(cin, question); 
+cout << question << endl; 
 
 for (int j = 0; j < 4; j++) {
     cout << "Enter Option " << j + 1 << "\n";
-    getline(cin, opt); // Read the full option line
-    options.push_back(opt); // Store option
-    cout << "Option " << j + 1 << ": " << opt << endl; // Print to verify input
+    getline(cin, opt); 
+    options.push_back(opt);
+    cout << "Option " << j + 1 << ": " << opt << endl;
 }
 
 
@@ -101,8 +101,8 @@ void Quiz::takeQuiz(Student* student) {
     Write_Result.open(filename,ios::app);
     student->getScore(quizCode);
     Write_Result << "+----------------------------------------------+"<<endl;
-    Write_Result << "|" +student->getID()<<"      |         " +student->getScore(quizCode) <<"             ";      
-
+    Write_Result << "|" +student->getID()<<"      |                     ";      
+    Write_Result << student->getScore(quizCode)<<"       |"<<endl;
     Write_Result.close();
 
 }

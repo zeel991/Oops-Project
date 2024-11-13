@@ -11,7 +11,6 @@ int main() {
     vector<Student> students;
     vector<Teacher> teachers;
 
-    // Sample student and teacher for testing
     Student student1("Zeel", "hello", "BT23CSE116");
     students.push_back(student1);
     Teacher teacher1("Zeel", "1234", "Mathematics", "CSL102");
