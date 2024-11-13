@@ -47,6 +47,7 @@ int main() {
                     cout <<"+-------------------+"<<endl;
                     cout <<"|1: Take Quiz       |" << endl;
                     cout <<"|2: View Score      |" << endl;
+                    cout <<"|3: See Info        |" << endl;
                     cout <<"+-------------------+"<<endl;
                     cout <<"Enter your choice: ";
                     cin >> ans;
@@ -73,6 +74,9 @@ int main() {
                         cin >> quizCode;
 
                         cout << "Score: " << studentIt->getScore(quizCode) << endl;
+                    }
+                    else if(ans == 3){
+                        studentIt->displayRole();
                     }
                 } else {
                     cout << "Student not found or incorrect credentials." << endl;

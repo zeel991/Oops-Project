@@ -5,7 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include<unordered_map>
+#include <unordered_map>
 using namespace std;
 class Admin {
 protected:
@@ -38,7 +38,12 @@ public:
     }
 
     void displayRole() override {
-        cout << "Role: Student" << endl;
+        cout << "+---------------------------"<<endl;
+        cout << "|     Role: Student " << endl;
+        cout << "|     Name: "<<this->name<<endl;
+        cout << "|     ID: "<<this->id<<endl;
+        cout << "+-----------------------------"<<endl;
+
     }
     string getPassword(){
         return this->password;
@@ -72,11 +77,12 @@ public:
     }
 
     void displayRole() override {
-        cout << "Role: Teacher" << endl;
-        cout<< "Name :" <<endl;
-        cout<< "ID" <<endl;
+        cout << "+---------------------------"<<endl;
+        cout << "|     Role: Student " << endl;
+        cout << "|     Name: "<<this->name<<endl;
+        cout << "|     ID: "<<this->id<<endl;
+        cout << "+-----------------------------"<<endl;
     }
-
     void displaySubject() {
         cout << "Subject: " << subject << endl;
     }

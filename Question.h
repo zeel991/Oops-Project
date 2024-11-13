@@ -23,8 +23,6 @@ public:
 
     virtual ~Question() {}
 
-    // to convert que to string format for saving in question.txt file, explained in derived classes
-    virtual string toFileFormat() = 0;
 };
 
 class MultipleChoiceQuestion : public Question {
@@ -43,7 +41,7 @@ public:
         cout << i + 1 << ". " << options[i] << endl;
     }
     };
-    
+
     string getQuestion() {
         return this->questionText;
     }
@@ -63,8 +61,6 @@ public:
     vector<string> getOptions(){
         return options;
     }
-    // to convert que to string format for saving in txt file
-    string toFileFormat() override;
 };
 
 // Derived class for true/false questions
@@ -83,11 +79,9 @@ public:
     }
     // Checks if the selected answer matches the correct answer
     bool checkAnswer(int answer) override;
- int getCorrectOption(){
+        int getCorrectOption(){
         return correctAnswer;
     }
-    // Converts the question to a formatted string for saving to a file
-    string toFileFormat() override;
 };
 
 #endif // QUESTION_H
