@@ -6,6 +6,10 @@ string Quiz::getQuizCode(){
 }
 
 void Quiz::insertQuestions() {
+
+    string filename = quizCode+ "_questions.txt";
+    fstream file(filename,ios::app);
+
     vector<string> options;
     for (int i = 0; i < number_of_MCQ; i++) {
         string question;
@@ -30,11 +34,21 @@ for (int j = 0; j < 4; j++) {
         cout << "Enter the Index of Correct Option: ";
         cin >> ans;
         cin.ignore(); // Clear newline character
-        
-        questions1.push_back(MultipleChoiceQuestion(question,options,(int)ans));
+        MultipleChoiceQuestion temp(question,options,(int)ans);
+        questions1.push_back(temp);
         options.clear();
 
         questions1[0].printQuestion();
+        file<<"----------------------------"<<endl;
+        file<<temp.getQuestion()<<endl;
+    
+        vector<string> hi = temp.getOptions();
+
+        for(int k = 0;k<4;k++){
+            file<< hi[k]<<endl;
+        }
+        file.close();
+
     }
 
     for (int i = 0; i < number_of_TF; i++) {

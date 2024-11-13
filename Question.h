@@ -53,7 +53,7 @@ public:
         }
         cout<< correctAnswer<<endl;
     }
-    // to Checks the correct answer
+    // to Checks the correct an0swer
     bool checkAnswer(int answer) override;
     int getCorrectOption(){
         return correctAnswer;
