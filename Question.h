@@ -43,6 +43,7 @@ public:
         cout << i + 1 << ". " << options[i] << endl;
     }
     };
+    
     string getQuestion() {
         return this->questionText;
     }

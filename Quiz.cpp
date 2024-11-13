@@ -1,7 +1,10 @@
 #include "Quiz.h"
+
+
 string Quiz::getQuizCode(){
     return this->quizCode;
 }
+
 void Quiz::insertQuestions() {
     vector<string> options;
     for (int i = 0; i < number_of_MCQ; i++) {
@@ -12,7 +15,8 @@ void Quiz::insertQuestions() {
        cout << "Enter the MCQ question " << i + 1 << "\n";
     cin.ignore();
 getline(cin, question); 
-cout << question << endl; 
+// cout << question << endl; 
+
 
 for (int j = 0; j < 4; j++) {
     cout << "Enter Option " << j + 1 << "\n";
@@ -99,7 +103,6 @@ void Quiz::takeQuiz(Student* student) {
     ofstream Write_Result;
 
     Write_Result.open(filename,ios::app);
-    student->getScore(quizCode);
     Write_Result << "+----------------------------------------------+"<<endl;
     Write_Result << "|" +student->getID()<<"      |                     ";      
     Write_Result << student->getScore(quizCode)<<"       |"<<endl;
