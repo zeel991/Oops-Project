@@ -1,6 +1,6 @@
 #include "Quiz.h"
 
-
+//commit 
 string Quiz::getQuizCode(){
     return this->quizCode;
 }
